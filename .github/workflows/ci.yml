@@ -6,12 +6,11 @@ on:
 
 jobs:
   check-file:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Check student data file
-        shell: cmd
-        run: if exist studentdata.txt (echo File exists) else (exit /b 1)
+        run: test -f studentdata.txt
