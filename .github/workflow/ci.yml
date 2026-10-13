@@ -1,0 +1,16 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  check-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check student data file
+        run: test -f studentdata.txt
